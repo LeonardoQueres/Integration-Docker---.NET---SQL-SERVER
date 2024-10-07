@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿#nullable disable warnings
+using Microsoft.EntityFrameworkCore;
 using Thunders_Borders.Entities;
 using Thunders_Borders.Repositories;
 using Thunders_Repositories.DataContext;
@@ -9,13 +10,12 @@ namespace Thunders_Repositories.Repositories
     {
         private readonly ApplicationDbContext _context = context;
 
-        public async Task<IEnumerable<ToDoList>> Create(ToDoList toDoList)
+        public async Task<ToDoList> Create(ToDoList toDoList)
         {
             _context.Add(toDoList);
             await _context.SaveChangesAsync();
 
-            var result = await _context.Tarefas.ToListAsync();
-            return result;
+            return await _context.Tarefas.FirstOrDefaultAsync(x => x.Id == toDoList.Id);           
         }
 
         public async Task<IEnumerable<ToDoList>> Get()

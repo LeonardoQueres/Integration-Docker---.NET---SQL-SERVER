@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using System.Collections.Generic;
 using Thunders_Borders.DTO.Internal;
 using Thunders_Borders.Entities;
 using Thunders_Borders.Repositories;
@@ -10,7 +11,7 @@ namespace Thunders_UseCases.UseCases
 {
     public class CreateToDoListUseCase(IToDoListRepository repository) : ICreateToDoListUseCase
     {
-        public async Task<UseCaseResponse<IEnumerable<ToDoListResponse>>> Execute(ToDoListRequest request)
+        public async Task<UseCaseResponse<ToDoListResponse>> Execute(ToDoListRequest request)
         {
             new CreateToDoListValidator().ValidateAndThrow(request);
 
@@ -18,7 +19,10 @@ namespace Thunders_UseCases.UseCases
 
             var result = await repository.Create(entity);
 
-            return UseCaseResponse<IEnumerable<ToDoListResponse>>.Success(result.Select(x => new ToDoListResponse(x)));
+            if (result == null)
+                return UseCaseResponse<ToDoListResponse>.NotFound(ErrorMessages.ToDoListNaoEncontrado.Build(entity.Id));
+
+            return UseCaseResponse<ToDoListResponse>.Success(new ToDoListResponse(result));
         }
     }
 }

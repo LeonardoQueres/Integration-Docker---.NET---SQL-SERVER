@@ -21,10 +21,10 @@ namespace Thunders_Api.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ToDoListResponse[]))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ToDoListResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorMessage[]))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ErrorMessage[]))]
-        public async Task<IActionResult> Post([FromBody] ToDoListRequest request)
+        public async Task<IActionResult> Create([FromBody] ToDoListRequest request)
         {
             var response = await createToDoListUseCase.Execute(request);
             return actionResultConverter.Convert(response);

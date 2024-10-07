@@ -3,7 +3,7 @@ using Thunders_Borders.Shared;
 
 namespace Thunders_Borders.UseCases
 {
-    public interface ICreateToDoListUseCase : IUseCase<ToDoListRequest, IEnumerable<ToDoListResponse>>
+    public interface ICreateToDoListUseCase : IUseCase<ToDoListRequest, ToDoListResponse>
     {
     }
 }
