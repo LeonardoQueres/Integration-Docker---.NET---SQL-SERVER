@@ -12,8 +12,8 @@ using Thunders_Repositories.DataContext;
 namespace Thunders_Repositories.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241006160126_Base")]
-    partial class Base
+    [Migration("20241007013911_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

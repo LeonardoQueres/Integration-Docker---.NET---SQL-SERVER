@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using Thunders_Api.Configurations;
 using Thunders_Api.Extensions;
+using Thunders_Api.Middlewares;
 using Thunders_Repositories.DataContext;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,7 +32,7 @@ builder.Services.AddMemoryCache();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddUseCases();
 builder.Services.AddRepositories();
-builder.Services.AddScoped<ActionResultConverter, ActionResultConverter>();
+builder.Services.AddScoped<IActionResultConverter, ActionResultConverter>();
 
 var app = builder.Build();
 
@@ -45,6 +46,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.MapControllers();
 

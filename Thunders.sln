@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thunders_Api", "Thunders_Api\Thunders_Api.csproj", "{40CCAC63-73E3-46A9-A016-7227E00CF0DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunders_Api", "Thunders_Api\Thunders_Api.csproj", "{40CCAC63-73E3-46A9-A016-7227E00CF0DC}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A74191B3-B0BA-4548-AAAE-2A5F5E15C97C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thunders_Borders", "Thunders_Borders\Thunders_Borders.csproj", "{55F44101-CCF3-4E10-841F-2F3360E11116}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunders_Borders", "Thunders_Borders\Thunders_Borders.csproj", "{55F44101-CCF3-4E10-841F-2F3360E11116}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thunders_Repositories", "Thunders_Repositories\Thunders_Repositories.csproj", "{41FA5CFD-79B7-438A-A6C0-8A276C97C7F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunders_Repositories", "Thunders_Repositories\Thunders_Repositories.csproj", "{41FA5CFD-79B7-438A-A6C0-8A276C97C7F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thunders_UseCases", "Thunders_UseCases\Thunders_UseCases.csproj", "{A7D7489E-F1ED-4141-AE00-DE8C56609698}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunders_UseCases", "Thunders_UseCases\Thunders_UseCases.csproj", "{A7D7489E-F1ED-4141-AE00-DE8C56609698}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thunders_Tests", "..\Thunders_Tests\Thunders_Tests.csproj", "{20A3EB45-90ED-4FC5-8795-D5C74C17A82A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A7D7489E-F1ED-4141-AE00-DE8C56609698}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7D7489E-F1ED-4141-AE00-DE8C56609698}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7D7489E-F1ED-4141-AE00-DE8C56609698}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20A3EB45-90ED-4FC5-8795-D5C74C17A82A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A3EB45-90ED-4FC5-8795-D5C74C17A82A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A3EB45-90ED-4FC5-8795-D5C74C17A82A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A3EB45-90ED-4FC5-8795-D5C74C17A82A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

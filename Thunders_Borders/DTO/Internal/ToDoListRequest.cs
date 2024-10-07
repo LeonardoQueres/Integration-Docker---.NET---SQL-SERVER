@@ -4,7 +4,7 @@ using Thunders_Borders.Enums;
 namespace Thunders_Borders.DTO.Internal
 {
     public record ToDoListRequest
-    {        
+    {
         public string Tarefa { get; init; }
         public DateTime Vencimento { get; init; }
         public PriorityType Prioridade { get; init; }
