@@ -18,7 +18,6 @@ namespace Thunders_Borders.Validators
                 .WithName("Descrição");
 
             RuleFor(x => x.Vencimento)
-                .NotEmpty().WithErrorMessage(ErrorMessages.GenericRequired.Build("{PropertyName}"))
                 .Must(VencimentoMaiorQueDataAtual).WithErrorMessage(ErrorMessages.ErroDataIgualDataAtual.Build("{PropertyName}"))
                 .WithName("Vencimento");
 

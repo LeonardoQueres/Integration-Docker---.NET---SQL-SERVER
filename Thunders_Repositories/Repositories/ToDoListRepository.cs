@@ -15,7 +15,7 @@ namespace Thunders_Repositories.Repositories
             _context.Add(toDoList);
             await _context.SaveChangesAsync();
 
-            return await _context.Tarefas.FirstOrDefaultAsync(x => x.Id == toDoList.Id);           
+            return await _context.Tarefas.FirstOrDefaultAsync(x => x.Id == toDoList.Id);
         }
 
         public async Task<IEnumerable<ToDoList>> Get()
