@@ -1,0 +1,6 @@
+@Thunders_Api_HostAddress = http://localhost:5201
+
+GET {{Thunders_Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
