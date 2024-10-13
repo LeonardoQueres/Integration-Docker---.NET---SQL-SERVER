@@ -22,15 +22,28 @@ Thunders/
 ## Configuração
 1. Certifique-se de verificar se os dados da ConnectionStrings no arquivo `appsettings.Development.json` são os mesmo utilizados na criação do banco de dados no docker
 
-## Criação do Banco de Dados
-Para baixar a imagem do banco de dados, use o seguinte comando no terminal:
+2. Criação do Banco de Dados
+2.1 Para baixar a imagem do banco de dados, use o seguinte comando no terminal:
 ```
 docker pull mcr.microsoft.com/mssql/server:2022-latest
 ```
-Para subir o container do banco de dados, use o seguinte comando no terminal:
+2.2 Para subir o container do banco de dados, use o seguinte comando no terminal:
 ```
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=123456' -p 1433:1433 --name MDNsqlserver -d mcr.microsoft.com/mssql/server:2022-latest 
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=leoQueres123' -p 1433:1433 --name MDNsqlserver -d mcr.microsoft.com/mssql/server:2022-latest 
 ```
-- Execute o Projeto utilizando Visual studio ou vs code
+3. Execute o Projeto utilizando Visual studio ou vs code
+3.1 Antes de executar o update-migration verificar no arquivo `appsettings.Development.json` se o Server na ConnectionStrings esta `localhost`, altere caso necessário.
+![image](https://github.com/user-attachments/assets/19fdbf75-84e3-4b26-9c4f-ef5811e7e249)
+   
+3.2 Abra o Console do Gerenciador de Pacotes e execute o comando update-database
+
+5. Altere o host da ConnectionStrings de `localhost` para h`ost.docker.internal` no arquivo `appsettings.Development.json`
+![image](https://github.com/user-attachments/assets/7e4f3d83-53b5-40c4-a631-4df6ac609d77)
+
+6. Execute o projeto com o tipo de execução Container (Dockerfile).
+![image](https://github.com/user-attachments/assets/a90e8c59-cca5-4495-abb7-c9430854a6a3)
+
+   
+
 
 

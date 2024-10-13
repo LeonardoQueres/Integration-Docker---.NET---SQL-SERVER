@@ -13,6 +13,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Thunders_Api/Thunders_Api.csproj", "Thunders_Api/"]
+COPY ["Thunders_Repositories/Thunders_Repositories.csproj", "Thunders_Repositories/"]
+COPY ["Thunders_Borders/Thunders_Borders.csproj", "Thunders_Borders/"]
+COPY ["Thunders_UseCases/Thunders_UseCases.csproj", "Thunders_UseCases/"]
 RUN dotnet restore "./Thunders_Api/Thunders_Api.csproj"
 COPY . .
 WORKDIR "/src/Thunders_Api"

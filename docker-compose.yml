@@ -3,9 +3,9 @@ services:
     image: ${DOCKER_REGISTRY-}thundersapi    
     build:
       context: .
-      dockerfile: Thunders_Api/Dockerfile
-    environment:
-      - Data source=localhost,1433;database=Thunders;TrustServerCertificate=true; User Id=sa;Password=123456;
+      dockerfile: Thunders_Api/Dockerfile    
+    ports:
+      - "7106:7106"
     depends_on:
       - sqlserver
     networks:
@@ -13,10 +13,14 @@ services:
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
+    hostname: sqlpreview
     environment:
-      SA_PASSWORD: "123456"
-      ACCEPT_EULA: "Y"  
-      MSSQL_PID: Express
+      - MSSQL_SA_PASSWORD= leoQueres123
+      - ACCEPT_EULA= Y       
+      - MSSQL_DATA_DIR=/var/opt/sqlserver/data
+      - MSSQL_LOG_DIR=/var/opt/sqlserver/log
+      - MSSQL_BACKUP_DIR=/var/opt/sqlserver/backup
+    restart: unless-stopped
     ports:
       - "1433:1433"
     volumes:
