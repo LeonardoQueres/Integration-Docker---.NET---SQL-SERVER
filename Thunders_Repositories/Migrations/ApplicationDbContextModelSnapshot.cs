@@ -59,6 +59,32 @@ namespace Thunders_Repositories.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tarefas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("c2a3bf8d-4340-4adc-85a3-a0be30d572f2"),
+                            Criacao = new DateTime(2024, 10, 12, 22, 52, 3, 731, DateTimeKind.Local).AddTicks(9233),
+                            Descricao = "Teste 1",
+                            Observacoes = "Teste observação 1",
+                            Prioridade = 0,
+                            Responsavel = "Queres",
+                            Status = 0,
+                            Tarefa = "Teste 1",
+                            Vencimento = new DateTime(2024, 11, 11, 22, 52, 3, 731, DateTimeKind.Local).AddTicks(9235)
+                        },
+                        new
+                        {
+                            Id = new Guid("b66910d4-f789-473d-b997-16efabdcb5d3"),
+                            Criacao = new DateTime(2024, 10, 12, 22, 52, 3, 731, DateTimeKind.Local).AddTicks(9242),
+                            Descricao = "Teste 2",
+                            Observacoes = "Teste observação 2",
+                            Prioridade = 1,
+                            Responsavel = "Thunders",
+                            Status = 2,
+                            Tarefa = "Teste 2",
+                            Vencimento = new DateTime(2024, 10, 27, 22, 52, 3, 731, DateTimeKind.Local).AddTicks(9244)
+                        });
                 });
 #pragma warning restore 612, 618
         }

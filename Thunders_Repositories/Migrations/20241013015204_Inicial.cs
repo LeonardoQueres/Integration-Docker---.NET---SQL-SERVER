@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
+
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
 namespace Thunders_Repositories.Migrations
 {
@@ -27,6 +30,15 @@ namespace Thunders_Repositories.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tarefas", x => x.Id);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tarefas",
+                columns: new[] { "Id", "Criacao", "Descricao", "Observacoes", "Prioridade", "Responsavel", "Status", "Tarefa", "Vencimento" },
+                values: new object[,]
+                {
+                    { new Guid("b66910d4-f789-473d-b997-16efabdcb5d3"), new DateTime(2024, 10, 12, 22, 52, 3, 731, DateTimeKind.Local).AddTicks(9242), "Teste 2", "Teste observação 2", 1, "Thunders", 2, "Teste 2", new DateTime(2024, 10, 27, 22, 52, 3, 731, DateTimeKind.Local).AddTicks(9244) },
+                    { new Guid("c2a3bf8d-4340-4adc-85a3-a0be30d572f2"), new DateTime(2024, 10, 12, 22, 52, 3, 731, DateTimeKind.Local).AddTicks(9233), "Teste 1", "Teste observação 1", 0, "Queres", 0, "Teste 1", new DateTime(2024, 11, 11, 22, 52, 3, 731, DateTimeKind.Local).AddTicks(9235) }
                 });
         }
 

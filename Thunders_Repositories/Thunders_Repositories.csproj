@@ -23,4 +23,8 @@
     <ProjectReference Include="..\Thunders_Borders\Thunders_Borders.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
