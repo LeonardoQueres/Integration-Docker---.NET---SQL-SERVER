@@ -21,7 +21,7 @@ namespace Thunders_UseCases.UseCases
             if (result == null)
                 return UseCaseResponse<ToDoListResponse>.InternalServerError(ErrorMessages.InternalServerError.Message);
 
-            return UseCaseResponse<ToDoListResponse>.Success(new ToDoListResponse(result));
+            return UseCaseResponse<ToDoListResponse>.Persisted(new ToDoListResponse(result), result.Id.ToString());
         }
     }
 }
