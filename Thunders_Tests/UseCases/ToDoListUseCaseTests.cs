@@ -1,9 +1,4 @@
 ﻿using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Thunders_Borders.DTO.Internal;
 using Thunders_Borders.Entities;
 using Thunders_Borders.Enums;
@@ -18,7 +13,7 @@ namespace Thunders_Tests.UseCases
     {
         [Fact]
         public async Task Execute_WhenEverythingIsOk_ReturnsSuccess()
-        {            
+        {
             IEnumerable<ToDoList> configurations = [new ToDoListBuilder().Build()];
 
             AutoMocker.GetMock<IToDoListRepository>().Setup(x => x.Get()).ReturnsAsync(configurations);

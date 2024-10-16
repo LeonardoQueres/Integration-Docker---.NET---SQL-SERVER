@@ -1,10 +1,4 @@
 ﻿using Moq;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Thunders_Borders.DTO.Internal;
 using Thunders_Borders.Entities;
 using Thunders_Borders.Enums;
@@ -24,7 +18,7 @@ namespace Thunders_Tests.UseCases
             var request = new CreateToDoListRequestBuilder().Build();
             var responseBuild = new ToDoListBuilder().Build();
 
-            AutoMocker.GetMock<IToDoListRepository>().Setup(x => x.Create(It.IsAny<ToDoList>())).ReturnsAsync(responseBuild);            
+            AutoMocker.GetMock<IToDoListRepository>().Setup(x => x.Create(It.IsAny<ToDoList>())).ReturnsAsync(responseBuild);
 
             var response = await GetSut().Execute(request);
 
@@ -42,5 +36,5 @@ namespace Thunders_Tests.UseCases
             await ActAndAssertFail(request, UseCaseResponseKind.InternalServerError, ErrorMessages.InternalServerError);
         }
 
-    }    
+    }
 }

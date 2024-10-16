@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using System.Text.Json.Serialization;
 using Thunders_Api.Configurations;
 using Thunders_Api.Extensions;
@@ -41,6 +42,12 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+
+    using (var scope = app.Services.CreateScope())
+    {
+        var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        db?.Database.Migrate();
+    }    
 }
 
 app.UseHttpsRedirection();

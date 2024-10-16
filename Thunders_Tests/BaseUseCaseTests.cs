@@ -1,10 +1,5 @@
 ﻿using FluentAssertions;
 using Moq.AutoMock;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Thunders_Borders.Enums;
 using Thunders_Borders.Shared;
 

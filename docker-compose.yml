@@ -1,33 +1,36 @@
 services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
+    container_name: sqlserver    
+    ports:
+      - "1433:1433"
+    environment:
+      - SA_PASSWORD=leoQueres123
+      - ACCEPT_EULA= Y       
+    volumes:
+      - ./sqlserver/data:/var/opt/mssql/data
+      - ./sqlserver/log:/var/opt/mssql/log       
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "leoQueres123" -Q "SELECT 1" -b -o /dev/null
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s  
+      
   thunders_api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=3000
+      - ASPNETCORE_HTTPS_PORTS=3001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=123
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/Thunders.pfx
+    container_name: thunders_api
     image: ${DOCKER_REGISTRY-}thundersapi    
     build:
       context: .
-      dockerfile: Thunders_Api/Dockerfile    
+      dockerfile: Thunders_Api/Dockerfile   
     ports:
-      - "7106:7106"
-    depends_on:
-      - sqlserver
-    networks:
-      - app-network
-
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    hostname: sqlpreview
-    environment:
-      - MSSQL_SA_PASSWORD= leoQueres123
-      - ACCEPT_EULA= Y       
-      - MSSQL_DATA_DIR=/var/opt/sqlserver/data
-      - MSSQL_LOG_DIR=/var/opt/sqlserver/log
-      - MSSQL_BACKUP_DIR=/var/opt/sqlserver/backup
-    restart: unless-stopped
-    ports:
-      - "1433:1433"
+      - "3000:3000"
+      - "3001:3001"
     volumes:
-      - C:\dados\volumes\sqlserver:/var/opt/mssql/data
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
+      - ~/.aspnet/https:/https:ro 

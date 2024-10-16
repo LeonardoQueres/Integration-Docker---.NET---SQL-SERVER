@@ -1,10 +1,4 @@
 ﻿using Bogus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Channels;
-using System.Threading.Tasks;
 using Thunders_Borders.Enums;
 
 namespace Thunders_Tests

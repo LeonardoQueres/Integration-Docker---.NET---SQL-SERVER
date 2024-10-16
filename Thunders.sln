@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunders_Repositories", "Th
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunders_UseCases", "Thunders_UseCases\Thunders_UseCases.csproj", "{A7D7489E-F1ED-4141-AE00-DE8C56609698}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thunders_Tests", "Thunders_Tests\Thunders_Tests.csproj", "{4570C950-D45F-4BC7-8E88-2CE9B979B99D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunders_Tests", "Thunders_Tests\Thunders_Tests.csproj", "{4570C950-D45F-4BC7-8E88-2CE9B979B99D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
