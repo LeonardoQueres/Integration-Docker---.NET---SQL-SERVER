@@ -16,6 +16,9 @@ services:
       - "3001:3001"
     volumes:
       - ~/.aspnet/https:/https:ro 
+    depends_on:
+      sqlserver:
+        condition: service_healthy
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
