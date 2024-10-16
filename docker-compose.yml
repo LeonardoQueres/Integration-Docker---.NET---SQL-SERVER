@@ -1,4 +1,22 @@
 services:
+  thunders_api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=3000
+      - ASPNETCORE_HTTPS_PORTS=3001
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=123
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/Thunders.pfx
+    container_name: thunders_api
+    image: ${DOCKER_REGISTRY-}thundersapi    
+    build:
+      context: .
+      dockerfile: Thunders_Api/Dockerfile   
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - ~/.aspnet/https:/https:ro 
+
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
     container_name: sqlserver    
@@ -17,20 +35,4 @@ services:
       retries: 10
       start_period: 10s  
       
-  thunders_api:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=3000
-      - ASPNETCORE_HTTPS_PORTS=3001
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/Thunders.pfx
-    container_name: thunders_api
-    image: ${DOCKER_REGISTRY-}thundersapi    
-    build:
-      context: .
-      dockerfile: Thunders_Api/Dockerfile   
-    ports:
-      - "3000:3000"
-      - "3001:3001"
-    volumes:
-      - ~/.aspnet/https:/https:ro 
+  
