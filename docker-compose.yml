@@ -16,6 +16,8 @@ services:
       - "3001:3001"
     volumes:
       - ~/.aspnet/https:/https:ro 
+    networks:
+      - compose-bridge
     depends_on:
       sqlserver:
         condition: service_healthy
@@ -30,12 +32,20 @@ services:
       - ACCEPT_EULA= Y       
     volumes:
       - ./sqlserver/data:/var/opt/mssql/data
-      - ./sqlserver/log:/var/opt/mssql/log       
+      - ./sqlserver/log:/var/opt/mssql/log   
+    networks:
+      - compose-bridge 
     healthcheck:
       test: /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "leoQueres123" -Q "SELECT 1" -b -o /dev/null
       interval: 10s
       timeout: 3s
       retries: 10
       start_period: 10s  
-      
+
+volumes: 
+  sqlserver:
+
+networks:
+  compose-bridge:
+    driver: bridge
   
