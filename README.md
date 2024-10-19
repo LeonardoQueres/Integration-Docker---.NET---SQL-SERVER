@@ -26,17 +26,11 @@ Thunders/
 
 3. Execute o comando `dotnet dev-certs https --trust`
 
-4. Execute o comando `docker-compose up --build` no terminal.
-
+4. Execute o comando `docker-compose up -d --build` no terminal.
 
 OBS.: O arquivo docker-compose esta configurado para baixar a imagem do sql server e a aplicação.
 
-OBS.2: O arquivo Program.cs esta configurado para rodar o migration quando subir a aplicação em desenvolvimento.
-
-OBS.3: A aplicação esta rodando na porta 3001 - `https://localhost:3001/swagger/index.html`
-
-OBS.4: Para executar o projeto mais de uma vez pelo docker é necessario excluir a pasta `sqlserver` que se encontra na pasta raiz do projeto. 
-Isto é necessario pos o migration tenta criar o banco toda vez que subir a aplicação.
+OBS.1: A aplicação esta rodando na porta 3001 - `https://localhost:3001/swagger/index.html`
 
 
    
