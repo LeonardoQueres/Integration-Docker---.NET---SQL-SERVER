@@ -12,7 +12,7 @@ using Thunders_Repositories.DataContext;
 namespace Thunders_Repositories.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241022005326_Initial")]
+    [Migration("20241022011852_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -24,73 +24,6 @@ namespace Thunders_Repositories.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Thunders_Borders.Entities.Contact", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Bairro")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Cep")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Cidade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Endereco")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Telefone")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Contatos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("a5dd3e54-c21e-4aa2-81b6-a18854983ecf"),
-                            Bairro = "teste bairro",
-                            Cep = 12345213,
-                            Cidade = "teste cidade",
-                            Email = "teste@teste.com",
-                            Endereco = "Teste 1 numero 1",
-                            Estado = "RL",
-                            Name = "Teste 1",
-                            Telefone = 0
-                        },
-                        new
-                        {
-                            Id = new Guid("2c746303-acff-4815-988e-df1e167a462a"),
-                            Bairro = "atestado bairro",
-                            Cep = 98765789,
-                            Cidade = "atestado cidade",
-                            Email = "atestado@teste.com",
-                            Endereco = "Teste 2 numero 2",
-                            Estado = "ML",
-                            Name = "Teste 2",
-                            Telefone = 0
-                        });
-                });
 
             modelBuilder.Entity("Thunders_Borders.Entities.ToDoList", b =>
                 {
@@ -134,26 +67,26 @@ namespace Thunders_Repositories.Migrations
                         new
                         {
                             Id = new Guid("c2a3bf8d-4340-4adc-85a3-a0be30d572f2"),
-                            Criacao = new DateTime(2024, 10, 21, 21, 53, 25, 927, DateTimeKind.Local).AddTicks(6459),
+                            Criacao = new DateTime(2024, 10, 21, 22, 18, 51, 585, DateTimeKind.Local).AddTicks(8726),
                             Descricao = "Teste 1",
                             Observacoes = "Teste observação 1",
                             Prioridade = 0,
                             Responsavel = "Queres",
                             Status = 0,
                             Tarefa = "Teste 1",
-                            Vencimento = new DateTime(2024, 11, 20, 21, 53, 25, 927, DateTimeKind.Local).AddTicks(6461)
+                            Vencimento = new DateTime(2024, 11, 20, 22, 18, 51, 585, DateTimeKind.Local).AddTicks(8728)
                         },
                         new
                         {
                             Id = new Guid("b66910d4-f789-473d-b997-16efabdcb5d3"),
-                            Criacao = new DateTime(2024, 10, 21, 21, 53, 25, 927, DateTimeKind.Local).AddTicks(6478),
+                            Criacao = new DateTime(2024, 10, 21, 22, 18, 51, 585, DateTimeKind.Local).AddTicks(8734),
                             Descricao = "Teste 2",
                             Observacoes = "Teste observação 2",
                             Prioridade = 1,
                             Responsavel = "Thunders",
                             Status = 2,
                             Tarefa = "Teste 2",
-                            Vencimento = new DateTime(2024, 11, 5, 21, 53, 25, 927, DateTimeKind.Local).AddTicks(6479)
+                            Vencimento = new DateTime(2024, 11, 5, 22, 18, 51, 585, DateTimeKind.Local).AddTicks(8735)
                         });
                 });
 #pragma warning restore 612, 618

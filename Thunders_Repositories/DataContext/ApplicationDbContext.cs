@@ -11,7 +11,6 @@ namespace Thunders_Repositories.DataContext
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<ToDoList> Tarefas { get; set; }
-        public DbSet<Contact> Contatos { get; set; }
+        public DbSet<ToDoList> Tarefas { get; set; }        
     }
 }
