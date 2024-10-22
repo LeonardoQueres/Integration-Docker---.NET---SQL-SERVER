@@ -12,5 +12,6 @@ namespace Thunders_Repositories.DataContext
         }
 
         public DbSet<ToDoList> Tarefas { get; set; }
+        public DbSet<Contact> Contatos { get; set; }
     }
 }

@@ -20,7 +20,8 @@ RUN dotnet restore "./Thunders_Api/Thunders_Api.csproj"
 COPY . .
 WORKDIR "/src/Thunders_Api"
 RUN dotnet tool install --global dotnet-ef 
-ENTRYPOINT dotnet ef database update  --project src/Thunders_Api --connection "Server=sqlserver,1433;Database=Thunders;User Id=SA;Password=leoQueres123;TrustServerCertificate=True"
+ENV PATH="$PATH:/root/.dotnet/tools"
+ENTRYPOINT dotnet-ef database update  --project src/Thunders_Repositories
 RUN dotnet build "./Thunders_Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Esta fase é usada para publicar o projeto de serviço a ser copiado para a fase final

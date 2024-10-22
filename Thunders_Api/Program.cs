@@ -42,13 +42,13 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    
+
+    var application = app.Services.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
     // Utilizando o migration a execução do container docker não é necessario as linhas abaixo
-    //using (var scope = app.Services.CreateScope())
-    //{
-    //    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    //    db?.Database.Migrate();
-    //}    
+    var pendingMigrations = await application.Database.GetPendingMigrationsAsync();
+    if (pendingMigrations != null)
+        await application.Database.MigrateAsync();
 }
 
 app.UseHttpsRedirection();
