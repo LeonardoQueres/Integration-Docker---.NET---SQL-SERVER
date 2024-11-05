@@ -22,13 +22,9 @@ Thunders/
 ## Configuração
 1. Após baixar o projeto.
 
-2. Execute o camando a seguir para criar um certificado `dotnet dev-certs https -ep "C:\Certificados\Thunders.pfx" -p 123` 
+2. Execute o comando `docker-compose up -d --build` no terminal.
 
-3. Execute o comando `dotnet dev-certs https --trust`
-
-4. Execute o comando `docker-compose up -d --build` no terminal.
-
-OBS.: O arquivo docker-compose esta configurado para baixar a imagem do sql server e a aplicação.
+OBS.: O arquivo docker-compose esta configurado para baixar a imagem do sql server e executar a aplicação.
 
 OBS.1: A aplicação esta rodando na porta 3001 - `https://localhost:3001/swagger/index.html`
 
