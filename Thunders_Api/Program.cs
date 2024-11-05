@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 using System.Text.Json.Serialization;
 using Thunders_Api.Configurations;
 using Thunders_Api.Extensions;
 using Thunders_Api.Middlewares;
 using Thunders_Repositories.DataContext;
+using static Microsoft.AspNetCore.Http.StatusCodes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +35,12 @@ builder.Services.AddUseCases();
 builder.Services.AddRepositories();
 builder.Services.AddScoped<IActionResultConverter, ActionResultConverter>();
 
+builder.Services.AddHttpsRedirection(options =>
+{
+    options.RedirectStatusCode = Status308PermanentRedirect;
+    options.HttpsPort = 3001;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -58,5 +64,7 @@ app.UseAuthorization();
 app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.MapControllers();
+
+app.UseAuthentication();
 
 app.Run();

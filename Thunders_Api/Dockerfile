@@ -21,8 +21,8 @@ COPY . .
 WORKDIR "/src/Thunders_Api"
 RUN dotnet tool install --global dotnet-ef 
 ENV PATH="$PATH:/root/.dotnet/tools"
-ENTRYPOINT dotnet-ef database update  --project src/Thunders_Repositories
 RUN dotnet build "./Thunders_Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+ENTRYPOINT dotnet ef database update --environment Development --project src/Thunders_Repositories
 
 # Esta fase é usada para publicar o projeto de serviço a ser copiado para a fase final
 FROM build AS publish

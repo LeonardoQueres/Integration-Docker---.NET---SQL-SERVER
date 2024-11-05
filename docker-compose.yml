@@ -4,8 +4,6 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=3000
       - ASPNETCORE_HTTPS_PORTS=3001
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=123
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/Thunders.pfx
     container_name: thunders_api
     image: ${DOCKER_REGISTRY-}thundersapi    
     build:
@@ -15,7 +13,8 @@ services:
       - "3000:3000"
       - "3001:3001"
     volumes:
-      - ~/.aspnet/https:/https:ro 
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
     networks:
       - compose-bridge
     depends_on:
