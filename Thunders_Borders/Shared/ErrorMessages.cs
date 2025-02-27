@@ -8,6 +8,6 @@ namespace Thunders_Borders.Shared
         public static readonly ErrorMessage ErroCommunicacaoComServico = new("03.01", "Erro na comunicação com o serviço.");
         public static readonly ErrorMessageBuilder ErroDataIgualDataAtual = new("03.02", "O campo {0} deve ser maior que a data atual.");
         public static readonly ErrorMessage ToDoListNaoEncontrado = new("03.03", "Tarefa não encontrada.");
-        public static readonly ErrorMessage InternalServerError = new("01.00", "Erro ao tentar cadastrar uma nova Tarefa.");
+        public static readonly ErrorMessage InternalServerErrorCreateToDoList = new("01.00", "Erro ao tentar cadastrar uma nova Tarefa.");
     }
 }

@@ -19,7 +19,7 @@ namespace Thunders_UseCases.UseCases
             var result = await repository.Create(entity);
 
             if (result == null)
-                return UseCaseResponse<ToDoListResponse>.InternalServerError(ErrorMessages.InternalServerError.Message);
+                return UseCaseResponse<ToDoListResponse>.InternalServerError(ErrorMessages.InternalServerErrorCreateToDoList.Message);
 
             return UseCaseResponse<ToDoListResponse>.Persisted(new ToDoListResponse(result), result.Id.ToString());
         }

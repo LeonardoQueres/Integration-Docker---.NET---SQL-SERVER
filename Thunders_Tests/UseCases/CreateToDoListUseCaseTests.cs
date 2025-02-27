@@ -33,7 +33,7 @@ namespace Thunders_Tests.UseCases
 
             var response = await GetSut().Execute(request);
 
-            await ActAndAssertFail(request, UseCaseResponseKind.InternalServerError, ErrorMessages.InternalServerError);
+            await ActAndAssertFail(request, UseCaseResponseKind.InternalServerError, ErrorMessages.InternalServerErrorCreateToDoList);
         }
 
     }
